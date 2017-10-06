@@ -1,0 +1,28 @@
+%!PS
+
+/circxy
+{
+  /t exch def
+  t 360 div 0 0
+  setrgbcolor
+  t t sin mul
+  t t cos mul
+}
+def
+
+/inch
+{72 mul} def
+
+3 inch 5 inch translate
+newpath
+1 1 360
+{
+  newpath
+  0 0 moveto
+  dup 360 div 0 0
+  setrgbcolor
+  circxy lineto
+  stroke
+}
+for
+showpage

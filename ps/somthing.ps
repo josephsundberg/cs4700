@@ -1,0 +1,33 @@
+%!PS
+%distance between x1,y1 and x2,y2
+%x1 x2 sub dup mul y1 y2 sub dup mul add sqrt
+/inch {72 mul} def
+/square 
+{ 
+	/l exch def
+	newpath
+	0 0 moveto
+	0 l lineto
+	l l lineto
+	l 0 lineto
+	closepath
+}def
+4.25 inch 5.5 inch translate
+45 rotate
+2 2 scale
+newpath
+72 72 moveto
+144 72 lineto
+144 144 lineto
+72 144 lineto
+1.7 0 0
+setrgbcolor
+closepath
+fill
+1 inch square
+fill
+
+2 inch square
+stroke
+showpage
+

@@ -1,0 +1,98 @@
+%!PS
+
+/B 
+{
+  gsave
+}bind def
+
+/E
+{
+  stroke grestore 
+}bind def
+/line
+{
+  10 0 rlineto
+} def
+
+
+/-O
+{
+  angleO neg rotate
+} def
+/+O
+{
+  angleO rotate
+} bind def
+
+/O
+{
+  dup 0 eq {line} {1 sub 5 {dup} repeat O B +O O E O B -O O E O} ifelse pop
+
+}def
+
+
+/Y
+{
+  dup 0 eq {line} {1 sub 8 {dup} repeat Y Y -Y B -Y Y +Y Y +Y Y E +Y B +Y Y -Y Y -Y Y E } ifelse pop
+} def
+
+/X
+{
+  dup 0 eq {line} {1 sub 5 {dup} repeat X B +X X E X B -X X E B X E} ifelse pop
+} def
+
+/F
+{
+  dup 0 eq {line} {1 sub 13 {dup} repeat F B +F F B +F F E B -F F E F E B -F F B +F F E B -F F E F E F B +F F E B -F F E F } ifelse pop
+}def
+/angleY {22.5} def
+/angleX {20} def
+/angleF {30} def
+/angleO {25}def
+/-X
+{
+  angleX neg rotate
+} def
+/+X
+{
+  angleX rotate
+} bind def
+/-Y
+{
+  angleY neg rotate
+} def
+/+Y
+{
+  angleY rotate
+} bind def
+/-F
+{
+  angleF neg rotate
+} def
+/+F 
+{
+  angleF rotate
+} bind def
+/inch
+{72 mul}def
+.5 .5 scale 
+newpath
+1 inch 2 inch moveto
+3 F
+stroke
+
+newpath
+0 inch 5.5 inch moveto
+5 X
+stroke
+
+newpath
+0 inch 11 inch moveto
+4 Y
+stroke
+
+newpath
+0 inch 16 inch moveto
+6 O
+stroke
+showpage
