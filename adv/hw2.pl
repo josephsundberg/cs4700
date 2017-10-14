@@ -17,7 +17,7 @@ study_c(Container):-location(Container,P),here(P),study(Container).
 move(P):-here(X),room(P),retract(here(X)),asserta(here(P)),look(P).
 
 %checked move
-move_c(P):-here(X),room(P),connection(X,P),retract(here(X)),asserta(here(P)),look(P).
+move_c(P):-here(X),room(P),connection(X,P),puzzle(P),retract(here(X)),asserta(here(P)),look(P).
 
 %unchecked Take
 take(I):-is_heavy(I),asserta(has(I)),location(I,L),retract(location(I,L)),asserta(location(I,inven)).
@@ -30,4 +30,4 @@ take_c(I):-is_heavy(I),here(X),location(I,X),asserta(has(I)),location(I,L),retra
 put(I,P):-has(I),retract(has(I)),asserta(location(I,P)).
 
 %chected put
-put(I)_c:-has(I),here(P),retract(has(I)),asserta(location(I,P)).
+put_c(I):-has(I),here(P),retract(has(I)),asserta(location(I,P)).
