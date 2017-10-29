@@ -10,8 +10,9 @@ inventory:-list_things_i.
 
 %checked studdy
 study_c(Place):-here(Place),study(Place).
+study_c(Container):-container(Container),!,location(Container,P),here(P),study(Container).
 study_c(Thing):-location(Thing,P),here(P),study(Thing).
-study_c(Container):-location(Container,P),here(P),study(Container).
+
 
 %unchecked move
 move(P):-here(X),room(P),retract(here(X)),asserta(here(P)),look(P).
@@ -30,4 +31,4 @@ take_c(I):-is_heavy(I),here(X),location(I,X),asserta(has(I)),location(I,L),retra
 put(I,P):-has(I),retract(has(I)),asserta(location(I,P)).
 
 %chected put
-put_c(I):-has(I),here(P),retract(has(I)),asserta(location(I,P)).
+put_c(I,P):-has(I),here(P),retract(has(I)),asserta(location(I,P)).
